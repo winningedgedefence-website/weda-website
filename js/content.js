@@ -198,6 +198,14 @@ window.WEDA_CONTENT = {
      ============================================================ */
   posts: [
     {
+      title: "Has the School Education Timeline Overtaken NDA Eligibility?",
+      link: "blog-nda-age-eligibility-school-education-timeline.html",
+      category: "NDA",
+      meta: "Policy Perspective · 5 min read",
+      author: "Col Amardeep Sir, SM (Retd.)",
+      excerpt: "Most students now finish Class XII at eighteen, leaving fewer NDA attempts than the previous generation had. RIMC and RMS have already revised their age limits — should the NDA framework be reviewed too?",
+    },
+    {
       title: "Before You Fill Any Sainik School Application Form, Read This First",
       link: "blog-before-you-apply-sainik-school.html",
       category: "Admissions",

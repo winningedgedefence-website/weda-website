@@ -1296,9 +1296,21 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
   margin:0 auto;
 }
 .post > *:first-child{margin-top:0;}
-.post p,.post h2,.post h3,.post hr,.post__lede,.post__sign,.post__note{
+.post p,.post h2,.post h3,.post hr,.post__lede,.post__sign,.post__note,.post__list{
   max-width:820px;margin-left:auto;margin-right:auto;
 }
+/* in-article list — used for course / point breakdowns */
+.post__list{list-style:none;padding:0;margin-bottom:1.15em;}
+.post__list li{
+  position:relative;padding:14px 18px 14px 40px;margin-bottom:10px;border-radius:13px;
+  background:rgba(12,12,14,.035);border:1px solid var(--glass-brd);
+  color:var(--gry-lt);font-size:clamp(14px,1.1vw,15.5px);line-height:1.7;
+}
+.post__list li::before{
+  content:"";position:absolute;left:18px;top:1.5em;width:7px;height:7px;
+  border-radius:50%;background:var(--red);
+}
+.post__list li b{display:block;margin-bottom:4px;color:var(--ink);font-weight:800;}
 .post p{
   color:var(--gry-lt);font-size:clamp(15px,1.15vw,16.5px);line-height:1.85;
   margin-bottom:1.15em;
