@@ -1362,6 +1362,44 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
   .post{border-radius:16px;}
   .post h3{padding-left:13px;}
 }
+/* ---- compact in-article lists ----------------------------------------
+   .post__list above is a card per item — right for 3–5 substantial points,
+   far too heavy for the long syllabus enumerations in the RIMC GK brief.
+   .post__ticks sets those in two columns at the same 820px reading width. */
+.post ul.post__ticks{
+  max-width:820px;margin:0 auto 1.15em;list-style:none;padding:0;
+  columns:2;column-gap:36px;
+}
+.post ul.post__ticks li{
+  position:relative;padding:5px 0 5px 20px;
+  break-inside:avoid;-webkit-column-break-inside:avoid;
+  color:var(--gry-lt);font-size:clamp(14px,1.1vw,15.5px);line-height:1.65;
+}
+.post ul.post__ticks li::before{
+  content:"";position:absolute;left:2px;top:.82em;width:6px;height:6px;
+  border-radius:50%;background:var(--red);
+}
+.post ul.post__ticks--one{columns:1;}
+/* a step / arrow chain — "State → Capital → Language → …" */
+.post__key{
+  max-width:820px;margin:0 auto 1.15em;
+  background:rgba(225,29,46,.05);border:1px solid rgba(225,29,46,.2);
+  border-left:3px solid var(--red);border-radius:13px;padding:15px 20px;
+}
+.post__key p{
+  margin:0!important;color:var(--wht)!important;font-weight:600;
+  font-family:var(--font-m);font-size:clamp(13px,1vw,14.5px)!important;
+  line-height:1.7!important;letter-spacing:.01em;
+}
+.post__key p + p{margin-top:.55em!important;}
+/* bolded lead-in above a list — "How to prepare?" */
+.post__cue{
+  max-width:820px;margin:0 auto .55em!important;
+  color:var(--ink)!important;font-weight:800;
+}
+@media(max-width:640px){
+  .post ul.post__ticks{columns:1;}
+}
 
 /* ---- CONTACT: social row + Google map ---- */
 .c-social{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}

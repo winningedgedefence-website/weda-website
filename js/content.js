@@ -198,6 +198,14 @@ window.WEDA_CONTENT = {
      ============================================================ */
   posts: [
     {
+      title: "RIMC December 2026 GK Syllabus Changed: How Should Students Prepare for the New General Knowledge Paper?",
+      link: "blog-rimc-gk-syllabus-2026-preparation.html",
+      category: "RIMC",
+      meta: "WEDA Exam Intel · 11 min read",
+      author: "Col Amardeep Sir, SM (Retd.)",
+      excerpt: "RIMC has notified a far wider General Knowledge syllabus for the December 2026 RIMCEE — 37 topic areas spanning science, environment, defence, culture and current affairs. The paper pattern, the eight preparation buckets, a 5-layer method and a practical 12-week plan.",
+    },
+    {
       title: "Has the School Education Timeline Overtaken NDA Eligibility?",
       link: "blog-nda-age-eligibility-school-education-timeline.html",
       category: "NDA",
