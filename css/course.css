@@ -1,0 +1,296 @@
+/* ============================================================
+   COURSE PAGES + BATCH SYSTEM
+   Loaded on: index.html, courses.html, batches.html and every
+   page under /courses/. Uses the existing Parade Whites tokens
+   from style.css only — no new colours, no new fonts.
+   ============================================================ */
+
+/* pulsing live dot — used on every "open" marker */
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--red);position:relative;flex:none;}
+.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--red);opacity:.6;animation:pls 1.9s var(--ease-o) infinite;}
+@keyframes pls{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse::after{animation:none;}}
+
+/* ---------------- course page header lede ---------------- */
+.phead__lede{max-width:620px;margin-top:26px;color:var(--gry-lt);font-size:clamp(15.5px,1.5vw,18px);line-height:1.72;}
+
+/* ---------------- body prose ---------------- */
+.prose{max-width:840px;}
+.prose p{color:var(--gry-lt);font-size:clamp(15.5px,1.5vw,17.5px);line-height:1.82;margin-bottom:22px;}
+.prose p:last-child{margin-bottom:0;}
+
+/* ---------------- eligibility spec grid ---------------- */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.spec{padding:26px 28px;display:flex;flex-direction:column;gap:10px;}
+.spec__k{font-family:var(--font-m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--red-hot);}
+.spec__v{color:var(--gry-lt);font-size:15px;line-height:1.66;}
+.disclaim{margin-top:22px;font-family:var(--font-m);font-size:11.5px;line-height:1.85;letter-spacing:.04em;color:var(--gry);max-width:760px;}
+.disclaim b{color:var(--red);}
+
+/* ---------------- selection stages ---------------- */
+.stage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+.stage{padding:clamp(28px,3vw,40px);}
+.stage__n{font-family:var(--font-d);font-size:44px;line-height:1;color:transparent;-webkit-text-stroke:1.4px rgba(225,29,46,.42);display:block;margin-bottom:18px;}
+.stage h3{font-size:clamp(22px,2.4vw,30px);line-height:1;margin-bottom:14px;color:var(--ink);}
+.stage p{color:var(--gry-lt);font-size:14.8px;line-height:1.75;}
+
+/* ---------------- syllabus ---------------- */
+.syl-list{display:grid;gap:14px;}
+.syl{padding:clamp(24px,2.6vw,34px) clamp(26px,3vw,40px);display:grid;grid-template-columns:minmax(180px,.4fr) 1fr;gap:clamp(18px,3vw,44px);align-items:start;}
+.syl h3{font-size:clamp(19px,2vw,26px);line-height:1.05;color:var(--ink);}
+.syl p{color:var(--gry-lt);font-size:14.8px;line-height:1.78;}
+@media (max-width:760px){.syl{grid-template-columns:1fr;gap:12px;}}
+
+/* ---------------- timeline ---------------- */
+.tl{list-style:none;display:grid;gap:16px;}
+.tl__i{display:grid;grid-template-columns:minmax(140px,.24fr) 1fr;gap:clamp(18px,3vw,40px);align-items:start;}
+.tl__when{padding-top:26px;}
+.tl__when b{display:block;font-family:var(--font-d);font-size:clamp(22px,2.4vw,30px);line-height:1;color:var(--red);text-transform:uppercase;}
+.tl__when span{display:block;margin-top:8px;font-family:var(--font-m);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gry);}
+.tl__body{padding:clamp(24px,2.6vw,34px) clamp(26px,3vw,40px);}
+.tl__body h3{font-size:clamp(19px,2vw,25px);line-height:1.05;margin-bottom:12px;color:var(--ink);}
+.tl__body p{color:var(--gry-lt);font-size:14.8px;line-height:1.78;}
+@media (max-width:760px){.tl__i{grid-template-columns:1fr;gap:10px;}.tl__when{padding-top:0;}}
+
+/* ---------------- what is included ---------------- */
+.inc-grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;}
+.inc{display:flex;align-items:center;gap:14px;padding:18px 22px;border-radius:16px;}
+.inc svg{width:17px;height:17px;flex:none;color:var(--red);}
+.inc span{font-size:14.6px;line-height:1.5;color:var(--gry-lt);}
+
+/* ---------------- FAQ ---------------- */
+.faq{display:grid;gap:12px;max-width:960px;}
+.faq__i{padding:0;border-radius:18px;}
+.faq__i summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:24px clamp(24px,3vw,34px);font-family:var(--font-d);text-transform:uppercase;
+  font-size:clamp(15px,1.7vw,19px);line-height:1.25;color:var(--ink);transition:color .25s;
+}
+.faq__i summary::-webkit-details-marker{display:none;}
+.faq__i summary:hover{color:var(--red);}
+.faq__i summary i{flex:none;width:15px;height:15px;position:relative;}
+.faq__i summary i::before,.faq__i summary i::after{content:"";position:absolute;background:var(--red);border-radius:2px;transition:transform .32s var(--ease-o);}
+.faq__i summary i::before{inset:6.5px 0;height:2px;}
+.faq__i summary i::after{inset:0 6.5px;width:2px;}
+.faq__i[open] summary i::after{transform:scaleY(0);}
+.faq__a{padding:0 clamp(24px,3vw,34px) 26px;}
+.faq__a p{color:var(--gry-lt);font-size:15px;line-height:1.8;max-width:760px;}
+
+/* ---------------- related courses ---------------- */
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.rel{padding:30px clamp(26px,3vw,34px);display:block;}
+.rel__lbl{font-family:var(--font-m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gry);}
+.rel b{display:block;font-family:var(--font-d);font-size:clamp(26px,3vw,38px);line-height:1;text-transform:uppercase;margin:14px 0 12px;color:var(--ink);transition:color .25s;}
+.rel:hover b{color:var(--red);}
+.rel p{color:var(--gry-lt);font-size:14.2px;line-height:1.7;}
+.rel__badge{display:inline-flex;margin-top:16px;padding:6px 13px;border-radius:100px;background:var(--red);color:var(--wht-pure);font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;}
+
+.cta-banner__btns{position:relative;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+
+/* ============================================================
+   TRACK TABS — Offline / Online
+   ============================================================ */
+.btabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.btab{
+  display:block;position:relative;flex:1 1 200px;max-width:320px;text-align:left;
+  padding:16px 22px;border-radius:16px;cursor:pointer;
+  background:var(--glass);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:border-color .28s,background .28s,transform .3s var(--ease-o);
+}
+a.btab{text-decoration:none;}
+.btab:hover{border-color:rgba(225,29,46,.5);transform:translateY(-2px);}
+.btab b{display:block;font-family:var(--font-d);font-size:19px;line-height:1;text-transform:uppercase;color:var(--gry-lt);transition:color .25s;}
+.btab span{display:block;margin-top:7px;font-family:var(--font-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gry);}
+.btab__dot{position:absolute;top:14px;right:16px;display:flex;}
+.btab.is-on{background:var(--ink);border-color:var(--ink);}
+.btab.is-on b{color:var(--wht-pure);}
+.btab.is-on span{color:rgba(255,255,255,.62);}
+.btab.is-on .pulse{background:#ff6b78;}
+.btab.is-on .pulse::after{border-color:#ff6b78;}
+.btabs--board{margin-bottom:38px;}
+@media (max-width:620px){.btab{flex:1 1 100%;max-width:none;}}
+
+.bpanel[hidden]{display:none;}
+.bstrip--empty{gap:18px;}
+.bstrip--empty .bstrip__flag{background:rgba(12,12,14,.05);border-color:var(--glass-brd-hi);color:var(--gry);}
+.bstrip--empty::after{background:var(--gry);opacity:.35;}
+
+/* ============================================================
+   BATCH STRIP — always visible, so a batch announcement is
+   never pop-up-only. Google penalises interstitial-only
+   content on mobile, so this carries the same information.
+   ============================================================ */
+.bstrip-wrap{padding-top:clamp(18px,2.5vw,32px);position:relative;z-index:2;}
+.bstrip{
+  padding:clamp(24px,2.8vw,34px) clamp(26px,3vw,40px) clamp(24px,2.8vw,34px) clamp(32px,3.4vw,46px);
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:clamp(18px,2.2vw,32px);
+  border-color:rgba(225,29,46,.3);
+}
+.bstrip__flag{align-self:center;}
+.bstrip__main{flex:1 1 240px;min-width:220px;}
+.bstrip__facts{flex:2 1 360px;}
+.bstrip__fee{flex:0 0 auto;margin-left:auto;}
+.bstrip .btn{flex:0 0 auto;}
+.bstrip::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red);}
+.bstrip__flag{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:100px;
+  background:rgba(225,29,46,.08);border:1px solid rgba(225,29,46,.34);
+  font-family:var(--font-m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-hot);white-space:nowrap;
+}
+.bstrip__main h2{font-size:clamp(21px,2.3vw,30px);line-height:1.02;color:var(--ink);margin-bottom:7px;}
+.bstrip__main p{font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gry);}
+.bstrip__facts{display:flex;gap:clamp(16px,2vw,30px);flex-wrap:wrap;}
+.bstrip__facts dt{font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gry);margin-bottom:5px;}
+.bstrip__facts dd{font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap;}
+.bstrip__fee{text-align:right;white-space:nowrap;}
+.bstrip__fee .was{font-size:13px;color:var(--gry);text-decoration:line-through;margin-right:8px;}
+.bstrip__fee b{font-family:var(--font-d);font-size:clamp(24px,2.6vw,34px);color:var(--red);}
+.bstrip__fee .save{display:block;margin-top:5px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gry-lt);}
+@media (max-width:1100px){
+  .bstrip{gap:20px;}
+  .bstrip__main,.bstrip__facts{flex:1 1 100%;}
+  .bstrip__fee{text-align:left;margin-left:0;}
+}
+
+/* ============================================================
+   BATCH POP-UP
+   ============================================================ */
+.bpop{position:fixed;inset:0;z-index:9990;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-o);}
+.bpop.is-on{opacity:1;pointer-events:auto;}
+.bpop__scrim{position:absolute;inset:0;background:rgba(12,12,14,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.bpop__card{
+  position:relative;width:min(620px,100%);max-height:88vh;overflow-y:auto;
+  padding:clamp(30px,4vw,48px);background:var(--glass-2);
+  transform:translateY(26px) scale(.975);transition:transform .48s var(--ease-o);
+}
+.bpop.is-on .bpop__card{transform:none;}
+.bpop__x{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--glass-brd-hi);background:var(--bg-2);color:var(--gry-lt);font-size:13px;
+  display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s;z-index:2;
+}
+.bpop__x:hover{background:var(--red);color:var(--wht-pure);border-color:var(--red);}
+.bpop__flag{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:100px;
+  background:rgba(225,29,46,.08);border:1px solid rgba(225,29,46,.34);
+  font-family:var(--font-m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-hot);
+}
+.bpop__card h2{font-size:clamp(28px,4vw,44px);line-height:.98;color:var(--ink);margin:20px 0 14px;}
+.bpop__pitch{color:var(--gry-lt);font-size:15px;line-height:1.72;margin-bottom:26px;}
+.bpop__date{padding:22px 26px;border-radius:16px;background:var(--ink);color:var(--wht-pure);margin-bottom:18px;}
+.bpop__date-k{font-family:var(--font-m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.62;}
+.bpop__date b{display:block;font-family:var(--font-d);font-size:clamp(30px,4.4vw,46px);line-height:1;margin:8px 0;}
+.bpop__date-s{font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#ff9089;}
+.bpop__facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
+.bpop__facts dt{font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gry);margin-bottom:5px;}
+.bpop__facts dd{font-size:14.5px;font-weight:600;color:var(--ink);}
+.bpop__fee{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 20px;border-radius:14px;border:1px solid var(--glass-brd-hi);background:var(--bg-2);margin-bottom:18px;}
+.bpop__fee span{display:block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gry);margin-bottom:6px;}
+.bpop__fee s{font-size:16px;color:var(--gry);}
+.bpop__fee b{font-family:var(--font-d);font-size:24px;color:var(--ink);}
+.bpop__fee .is-offer b{color:var(--red);}
+.bpop__fee .is-save b{font-size:19px;color:var(--gry-lt);}
+/* two batches sharing one start date — Class 6 and Class 9 */
+.bpop__classes{
+  padding:16px 20px;border-radius:14px;margin-bottom:18px;
+  background:rgba(225,29,46,.05);border:1px solid rgba(225,29,46,.26);
+}
+.bpop__classes-k{display:block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-hot);margin-bottom:12px;}
+.bpop__class{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:8px 0;border-top:1px solid rgba(225,29,46,.16);}
+.bpop__class:first-of-type{border-top:none;}
+.bpop__class b{font-family:var(--font-d);font-size:17px;text-transform:uppercase;color:var(--ink);}
+.bpop__class span{font-family:var(--font-m);font-size:12px;letter-spacing:.08em;color:var(--gry-lt);white-space:nowrap;}
+
+/* the two teaching phases */
+.bpop__phases{list-style:none;display:grid;gap:10px;margin-bottom:20px;}
+.bpop__phases li{padding:14px 18px;border-radius:12px;border:1px solid var(--glass-brd);background:var(--bg-2);}
+.bpop__phase-when{display:block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-hot);margin-bottom:6px;}
+.bpop__phases b{display:block;font-family:var(--font-d);font-size:16px;text-transform:uppercase;color:var(--ink);margin-bottom:6px;}
+.bpop__phase-desc{display:block;font-size:12.8px;line-height:1.6;color:var(--gry-lt);}
+
+.bpop__demo{font-family:var(--font-m);font-size:11px;line-height:1.7;letter-spacing:.05em;color:var(--gry-lt);margin-bottom:24px;}
+.bpop__demo b{color:var(--red);}
+.bpop__btns{display:flex;gap:10px;flex-wrap:wrap;}
+.bpop__btns .btn{padding:14px 24px;font-size:13px;}
+.bpop__seats{margin-top:18px;font-family:var(--font-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gry);line-height:1.7;}
+@media (max-width:560px){.bpop__fee{grid-template-columns:1fr;}.bpop__facts{grid-template-columns:1fr;}}
+
+/* ============================================================
+   COURSES HUB additions
+   ============================================================ */
+.pframe__badge{
+  position:absolute;top:14px;right:14px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:100px;background:var(--red);color:var(--wht-pure);
+  font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  box-shadow:0 10px 26px -10px rgba(225,29,46,.7);
+}
+.pframe__badge .pulse{background:var(--wht-pure);}
+.pframe__badge .pulse::after{border-color:var(--wht-pure);}
+.course-row__batch{
+  margin-top:16px;padding:13px 18px;border-radius:12px;
+  background:rgba(225,29,46,.06);border:1px solid rgba(225,29,46,.26);
+  font-family:var(--font-m)!important;font-size:11px!important;letter-spacing:.09em;text-transform:uppercase;color:var(--gry-lt)!important;line-height:1.6;
+}
+.course-row__batch b{color:var(--red-hot);}
+.course-row__batch em{
+  font-style:normal;display:inline-block;margin-right:9px;padding:3px 9px;border-radius:100px;
+  background:var(--ink);color:var(--wht-pure);font-size:9px;letter-spacing:.16em;
+}
+.course-row__batch--online{background:rgba(12,12,14,.04);border-color:var(--glass-brd-hi);}
+.course-row__batch--online em{background:var(--gry-lt);}
+.course-row__batch + .course-row__batch{margin-top:8px;}
+a.course-row__batch{display:block;text-decoration:none;transition:border-color .25s,transform .28s var(--ease-o);}
+a.course-row__batch:hover{border-color:var(--red);transform:translateX(3px);}
+.course-row__btns{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px;}
+
+/* the "prefer online / prefer classroom" line inside the pop-up */
+.bpop__alt{
+  margin:-8px 0 22px;padding:14px 18px;border-radius:12px;
+  background:rgba(12,12,14,.04);border:1px solid var(--glass-brd);
+  font-size:13.5px;line-height:1.6;color:var(--gry-lt);
+}
+.bpop__alt button{
+  display:block;margin-top:6px;background:none;border:none;padding:0;text-align:left;
+  font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);text-decoration:underline;text-underline-offset:3px;
+}
+.bpop__alt button:hover{color:var(--red-hot);}
+
+/* ============================================================
+   HOMEPAGE BATCH RIBBON
+   ============================================================ */
+.ribbon{padding:clamp(30px,3.6vw,46px) clamp(28px,3.4vw,46px);border-color:rgba(225,29,46,.28);}
+.ribbon__head{margin-bottom:26px;}
+.ribbon__flag{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:100px;background:rgba(225,29,46,.08);border:1px solid rgba(225,29,46,.34);font-family:var(--font-m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-hot);margin-bottom:18px;}
+.ribbon__head h2{font-size:clamp(26px,3.4vw,44px);line-height:1;color:var(--ink);margin-bottom:10px;}
+.ribbon__head p{color:var(--gry-lt);font-size:14.8px;line-height:1.7;}
+.ribbon__list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin-bottom:26px;}
+.rib{padding:18px 20px;border-radius:14px;border:1px solid var(--glass-brd);background:var(--bg-2);transition:border-color .28s,transform .3s var(--ease-o);}
+.rib:hover{border-color:var(--red);transform:translateY(-3px);}
+.rib b{display:block;font-family:var(--font-d);font-size:21px;line-height:1;text-transform:uppercase;color:var(--ink);margin-bottom:9px;}
+.rib span{display:block;font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-hot);margin-bottom:5px;}
+.rib i{font-style:normal;font-family:var(--font-m);font-size:10px;letter-spacing:.1em;color:var(--gry);}
+
+/* ============================================================
+   /batches DASHBOARD
+   ============================================================ */
+.bboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;}
+.bboard--past{opacity:.62;}
+.brow{padding:clamp(26px,3vw,36px);display:flex;flex-direction:column;gap:22px;}
+.brow__status{
+  display:inline-flex;align-items:center;padding:6px 13px;border-radius:100px;
+  font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;
+}
+.brow__status.is-open{background:var(--red);color:var(--wht-pure);}
+.brow__status.is-upcoming{background:rgba(225,29,46,.1);color:var(--red-hot);border:1px solid rgba(225,29,46,.4);}
+.brow__status.is-closed{background:rgba(12,12,14,.07);color:var(--gry);}
+.brow__head h3{font-size:clamp(21px,2.4vw,29px);line-height:1.02;color:var(--ink);margin-bottom:9px;}
+.brow__head p{font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gry);}
+.brow__facts{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:20px 0;border-top:1px solid var(--glass-brd);border-bottom:1px solid var(--glass-brd);}
+.brow__facts dt{font-family:var(--font-m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gry);margin-bottom:5px;}
+.brow__facts dd{font-size:14px;font-weight:600;color:var(--ink);}
+.brow__facts dd s{font-weight:400;color:var(--gry);margin-left:6px;}
+.brow__btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;}
+.brow__btns .btn{padding:13px 22px;font-size:12.5px;}

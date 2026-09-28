@@ -3,10 +3,105 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/mentors.html", "destination": "/about.html", "permanent": true },
-    { "source": "/mentors", "destination": "/about", "permanent": true },
-    { "source": "/gallery.html", "destination": "/about.html", "permanent": true },
-    { "source": "/gallery", "destination": "/about", "permanent": true },
-    { "source": "/rimc-gk-syllabus-2026-preparation", "destination": "/blog-rimc-gk-syllabus-2026-preparation", "permanent": true }
+    {
+      "source": "/mentors.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/mentors",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/rimc-gk-syllabus-2026-preparation",
+      "destination": "/blog-rimc-gk-syllabus-2026-preparation",
+      "permanent": true
+    },
+    {
+      "source": "/nda",
+      "destination": "/courses/nda",
+      "permanent": true
+    },
+    {
+      "source": "/cds",
+      "destination": "/courses/cds",
+      "permanent": true
+    },
+    {
+      "source": "/rimc",
+      "destination": "/courses/rimc",
+      "permanent": true
+    },
+    {
+      "source": "/sainik-rms",
+      "destination": "/courses/sainik-rms",
+      "permanent": true
+    },
+    {
+      "source": "/sainik",
+      "destination": "/courses/sainik-rms",
+      "permanent": true
+    },
+    {
+      "source": "/rms",
+      "destination": "/courses/sainik-rms",
+      "permanent": true
+    },
+    {
+      "source": "/ssc-gd",
+      "destination": "/courses/ssc-gd",
+      "permanent": true
+    },
+    {
+      "source": "/sscgd",
+      "destination": "/courses/ssc-gd",
+      "permanent": true
+    },
+    {
+      "source": "/ssb",
+      "destination": "/courses/ssb",
+      "permanent": true
+    },
+    {
+      "source": "/nda-2026-27",
+      "destination": "/courses/nda",
+      "permanent": true
+    },
+    {
+      "source": "/cds-2026-27",
+      "destination": "/courses/cds",
+      "permanent": true
+    },
+    {
+      "source": "/rimc-2026-27",
+      "destination": "/courses/rimc",
+      "permanent": true
+    },
+    {
+      "source": "/sainik-rms-2026-27",
+      "destination": "/courses/sainik-rms",
+      "permanent": true
+    },
+    {
+      "source": "/ssc-gd-2026-27",
+      "destination": "/courses/ssc-gd",
+      "permanent": true
+    },
+    {
+      "source": "/courses.html",
+      "destination": "/courses",
+      "permanent": true
+    }
   ]
 }

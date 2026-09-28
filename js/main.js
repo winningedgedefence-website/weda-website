@@ -6,6 +6,9 @@ gsap.registerPlugin(ScrollTrigger);
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const desk = matchMedia('(min-width: 1061px)').matches;
+/* Pages inside /courses/ set data-base="../" on <body>, so anything this
+   file injects has to prefix its own asset and link paths with it. */
+const BASE = (document.body && document.body.dataset.base) || '';
 
 /* ---------- Lenis smooth scroll ---------- */
 let lenis = null;
@@ -886,7 +889,7 @@ const TANK_SVG = `
     <rect x="49" y="3.5" width="10" height="6" rx="2" fill="#2e2e36" stroke="rgba(255,255,255,.2)" stroke-width=".6"/>
     <path d="M52.6 15.4l2.6-2.4 2.6 2.4-1 3-3.2 0z" fill="#e11d2e"/>
     <path d="M24 24h76c3.5 0 6 2.6 6 6l-4 8H20l-2-8c0-3.4 2.6-6 6-6z" fill="#1d1d24" stroke="rgba(255,255,255,.25)" stroke-width=".7"/>
-    <image href="assets/logo-mark.png" x="72" y="26" width="14" height="11" opacity=".95"/>
+    <image href="${BASE}assets/logo-mark.png" x="72" y="26" width="14" height="11" opacity=".95"/>
   </g>
   <rect x="16" y="36" width="94" height="19" rx="9.5" fill="#101014" stroke="rgba(255,255,255,.3)" stroke-width=".8"/>
   <g stroke="rgba(255,255,255,.4)" stroke-width=".7" fill="#1a1a20">
@@ -913,7 +916,7 @@ if (foot) {
 }
 /* footer full-logo swap (keeps HTML DRY across pages) */
 const fLogo = document.querySelector('.foot__about .nav__logo');
-if (fLogo) fLogo.outerHTML = '<a href="index.html" class="foot-logo"><img src="assets/logo.png" alt="WEDA — The Winning Edge Defence Academy"></a>';
+if (fLogo) fLogo.outerHTML = `<a href="${BASE}index.html" class="foot-logo"><img src="${BASE}assets/logo.png" alt="WEDA — The Winning Edge Defence Academy"></a>`;
 
 /* ---------- form toast ---------- */
 const form = document.getElementById('regForm');
