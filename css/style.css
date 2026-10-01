@@ -1200,15 +1200,16 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
    all — 3:2 was slicing the top and bottom off, taking people's heads. */
 .wcar--wide     .wcar__slide{aspect-ratio:4/3;flex-basis:calc((100% - 1 * clamp(10px,1.3vw,18px)) / 2);}
 
-/* Achiever cards carry the student's name, exam and year printed inside a
-   black frame. They used to be clipped to a circle, which cut the names
-   clean off — so the slide is now a square card and the whole image is
-   shown, contained rather than cropped. */
+/* Achiever cards carry the student's name, exam and year printed on them.
+   They were once clipped to a circle, which cut the names clean off, so
+   the slide is now a card showing the whole image — contained, never
+   cropped. The black frame was trimmed out of the files themselves, and
+   the cards underneath are 3:4, so the slide matches that. */
 .wcar--badge .wcar__slide{
   /* four across, not five — the printed name has to stay readable */
-  aspect-ratio:1/1;flex-basis:calc((100% - 3 * clamp(10px,1.3vw,18px)) / 4);
-  background:#000;border:1px solid rgba(12,12,14,.16);border-radius:14px;
-  box-shadow:0 16px 36px -22px rgba(12,12,14,.5);
+  aspect-ratio:3/4;flex-basis:calc((100% - 3 * clamp(10px,1.3vw,18px)) / 4);
+  background:var(--bg-2);border:1px solid rgba(12,12,14,.14);border-radius:14px;
+  box-shadow:0 16px 36px -24px rgba(12,12,14,.4);
   transition:transform .4s var(--ease-o),border-color .3s,box-shadow .3s;
 }
 .wcar--badge .wcar__slide img{border-radius:0;object-fit:contain;filter:none;}
