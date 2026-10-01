@@ -469,6 +469,38 @@ window.WEDA_CONTENT = {
     { image: "assets/camp-img-6526.jpg", caption: "" },
     { image: "assets/camp-whatsapp-image-2025-12-27-at-9-18-29-am.jpg", caption: "" },
     { image: "assets/camp-whatsapp-image-2026-01-01-at-10-22-50-pm.jpg", caption: "" },
+    { image: "assets/camp-event-01.jpg", caption: "" },
+    { image: "assets/camp-event-02.jpg", caption: "" },
+    { image: "assets/camp-event-03.jpg", caption: "" },
+    { image: "assets/camp-event-04.jpg", caption: "" },
+  ],
+
+  /* ------- SEMINARS & EVENTS carousel (about.html) -------
+     A separate carousel because these photos were shot vertically on
+     phones. Squeezing a tall phone photo into the 4:3 frame above would
+     throw away more than half of it and cut heads off, so these are
+     cropped to 1:1 instead and shown four across.
+
+     TO ADD A PHOTO: crop it square (1:1) before saving it into assets/,
+     then copy a line below. Anything not square will stretch the row. */
+  gallerySquare: [
+    { image: "assets/event-01.jpg", caption: "" },
+    { image: "assets/event-02.jpg", caption: "" },
+    { image: "assets/event-03.jpg", caption: "" },
+    { image: "assets/event-04.jpg", caption: "" },
+    { image: "assets/event-05.jpg", caption: "" },
+    { image: "assets/event-06.jpg", caption: "" },
+    { image: "assets/event-07.jpg", caption: "" },
+    { image: "assets/event-08.jpg", caption: "" },
+    { image: "assets/event-09.jpg", caption: "" },
+    { image: "assets/event-10.jpg", caption: "" },
+    { image: "assets/event-11.jpg", caption: "" },
+    { image: "assets/event-12.jpg", caption: "" },
+    { image: "assets/event-13.jpg", caption: "" },
+    { image: "assets/event-14.jpg", caption: "" },
+    { image: "assets/event-15.jpg", caption: "" },
+    { image: "assets/event-16.jpg", caption: "" },
+    { image: "assets/event-17.jpg", caption: "" },
   ],
 
   /* ------- ACHIEVER WALL photos (results.html) ------- */

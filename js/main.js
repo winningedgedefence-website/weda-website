@@ -295,6 +295,9 @@ if (!reduced && typeof Lenis !== 'undefined') {
   /* ---- GALLERY: life at the academy (about.html) ---- */
   buildCarousel(document.getElementById('reconGrid'), C.gallery, { variant: 'wide', label: 'Inside the academy' });
 
+  /* ---- SEMINARS & EVENTS: square crops, four across (about.html) ---- */
+  buildCarousel(document.getElementById('eventGrid'), C.gallerySquare, { variant: 'portrait', label: 'Seminars and events' });
+
   /* ---- ACHIEVERS: selected cadets (about.html) ---- */
   buildCarousel(document.getElementById('achieverGrid'), C.achieverBadges, { variant: 'badge', label: 'Our achievers' });
 
