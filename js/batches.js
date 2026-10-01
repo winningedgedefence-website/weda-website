@@ -152,10 +152,9 @@ window.WEDA_BATCHES = [
     ends: "2027-04-30",
     startsLabel: "18 Sept 2026",
     duration: "Till April 2027",
-    /* Taken exactly from the SSC GD creative. If this evening slot is a
-       typo for 9:00 AM - 12:00 PM, change it here and it updates
-       everywhere on the site. */
-    timing: "9:00 PM - 12:00 AM",
+    /* Morning slot, confirmed by WEDA. The SSC GD creative prints
+       "9:00 PM - 12:00 AM" — that is a typo in the artwork. */
+    timing: "9:00 AM - 12:00 PM",
     days: "Monday to Friday",
     weeklyTest: "12 weekly + 4 monthly tests",
     mode: "Classroom - Dehradun",
