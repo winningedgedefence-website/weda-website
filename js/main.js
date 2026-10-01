@@ -292,11 +292,8 @@ if (!reduced && typeof Lenis !== 'undefined') {
   /* ---- GOALKEEPER: support team photo carousel (about.html) ---- */
   buildCarousel(document.getElementById('keeperGrid'), C.goalkeeper, { variant: 'portrait', label: 'Support team' });
 
-  /* ---- GALLERY: life at the academy (about.html) ---- */
-  buildCarousel(document.getElementById('reconGrid'), C.gallery, { variant: 'wide', label: 'Inside the academy' });
-
-  /* ---- SEMINARS & EVENTS: square crops, four across (about.html) ---- */
-  buildCarousel(document.getElementById('eventGrid'), C.gallerySquare, { variant: 'portrait', label: 'Seminars and events' });
+  /* The gallery carousels that used to sit on About are gone — every
+     photo now lives on gallery.html, built by js/gallery.js. */
 
   /* ---- ACHIEVERS: selected cadets (about.html) ---- */
   buildCarousel(document.getElementById('achieverGrid'), C.achieverBadges, { variant: 'badge', label: 'Our achievers' });
