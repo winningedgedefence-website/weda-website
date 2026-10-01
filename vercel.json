@@ -103,5 +103,22 @@
       "destination": "/courses",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/google2383982c1dcd69e3.html",
+      "destination": "/google2383982c1dcd69e3"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/google2383982c1dcd69e3",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    }
   ]
 }
