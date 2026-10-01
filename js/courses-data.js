@@ -140,7 +140,7 @@ window.WEDA_COURSES = [
       { q: "How long does the full CDS preparation take?", a: "Our classroom course runs from October to the exam with crash revision and mock marathons built in. A candidate starting from the fundamentals should plan on six to seven months of consistent work." },
     ],
 
-    related: ["nda", "ssb", "ssc-gd"],
+    related: ["nda", "ssb"],
   },
 
   /* ========================================================== */
@@ -279,70 +279,6 @@ window.WEDA_COURSES = [
 
   /* ========================================================== */
   {
-    id: "ssc-gd",
-    name: "SSC GD",
-    fullName: "SSC General Duty Constable",
-    label: "CONSTABLE ENTRY - AFTER CLASS 10",
-    image: "assets/course-2.webp",
-    metaTitle: "SSC GD Coaching in Dehradun | SSC GD 2026-27 Batch - The Winning Edge",
-    metaDesc: "SSC GD Constable coaching in Dehradun. Reasoning, general knowledge, elementary mathematics and language for the computer based exam, plus PET and PST guidance.",
-    tagline: "The uniform after Class 10 - CAPF, Assam Rifles, NIA and SSF.",
-    intro: [
-      "The SSC GD Constable examination recruits General Duty Constables into the Central Armed Police Forces, Rifleman in the Assam Rifles, and posts in the NIA and SSF. It is a Class 10 level paper, which makes it the widest open door in uniformed service recruitment - and the most heavily contested.",
-      "Eighty questions across reasoning, general knowledge, elementary mathematics and language, answered on a computer against the clock. Then the physical stage. Our course runs the written preparation in the classroom and tells candidates plainly to start the running from day one, not after the result.",
-    ],
-    keywords: ["SSC GD coaching Dehradun", "SSC GD constable preparation", "CAPF recruitment", "SSC GD PET PST"],
-
-    eligibility: [
-      { k: "Qualification", v: "Class 10 passed from a recognised board." },
-      { k: "Age", v: "Broadly 18 to 23 years, with relaxation for reserved categories as notified." },
-      { k: "Physical standards", v: "Height, chest and running standards vary by gender, category and region." },
-      { k: "Conducted by", v: "Staff Selection Commission." },
-    ],
-    eligibilityNote: "Physical standards differ for candidates from hill regions and scheduled tribes, and the age relaxation table changes. Confirm against the current SSC notification.",
-
-    stages: [
-      { name: "Computer Based Exam", desc: "Eighty questions across reasoning, general knowledge, elementary mathematics and language, against the clock. This is what the classroom hours, worksheets and Saturday tests are aimed at." },
-      { name: "PET & PST", desc: "The race, then height and chest measurement against the standard for your category. Fitness is built over months, so start alongside the classes rather than after the result." },
-      { name: "Medical & Merit", desc: "A detailed medical examination follows, and the final merit list is drawn from your written marks. Every mark earned from day one counts towards where you finish." },
-    ],
-
-    syllabus: [
-      { name: "General Intelligence & Reasoning", topics: "Analogies, similarities and differences, spatial visualisation, coding and decoding, series, non-verbal reasoning." },
-      { name: "General Knowledge & Awareness", topics: "Current affairs, India and its neighbours, history, culture, geography, economy, polity, scientific research." },
-      { name: "Elementary Mathematics", topics: "Number systems, computation of whole numbers, decimals and fractions, percentage, ratio and proportion, averages, interest, profit and loss, discount, mensuration, time and distance." },
-      { name: "English / Hindi", topics: "Basic comprehension, grammar, vocabulary, error spotting and usage in the chosen language." },
-    ],
-
-    plan: [
-      { when: "18 - 30 Sept", sub: "2026", title: "Free demo classes", desc: "Two weeks of open classes at the Donali Chowk centre. Sit in, see the teaching method, and ask questions before committing." },
-      { when: "From 18 Sept", sub: "2026", title: "Complete SSC GD course", desc: "The full SSC GD syllabus taught concept by concept, with practice worksheets and regular tests throughout." },
-      { when: "Through", sub: "the batch", title: "Testing and analysis", desc: "Twelve weekly tests and four monthly tests, with regular performance analysis after each one." },
-      { when: "Valid till", sub: "April 2027", title: "Mock tests and final preparation", desc: "Five full-length mock tests and five previous year papers, worked under exam timing." },
-    ],
-
-    includes: [
-      "Complete SSC GD-Focused Preparation",
-      "Expert Faculty & Personal Mentoring",
-      "12 Weekly Tests + 4 Monthly Tests",
-      "5 Full-Length Mock Tests",
-      "5 Previous Year Papers (PYPs)",
-      "Regular Performance Analysis",
-    ],
-
-    faqs: [
-      { q: "When should I start the physical preparation?", a: "On day one, alongside the classes. This is the single most common mistake candidates make. The race is not something you can train for in the few weeks between the written result and the PET - it needs months of consistent running, and candidates who wait lose at a stage they had already earned." },
-      { q: "Is the written paper difficult?", a: "The level is Class 10, so no individual question is hard. The difficulty is volume and speed - eighty questions with negative marking on a computer screen. Accuracy under time pressure is what separates the merit list, and that is purely a matter of practice." },
-      { q: "Can I attempt the paper in Hindi?", a: "Yes. The language section offers English or Hindi, and the rest of the paper is available in both. Choose the language you read fastest in, not the one you think looks better." },
-      { q: "Which forces recruit through SSC GD?", a: "The Central Armed Police Forces - BSF, CISF, CRPF, SSB and ITBP - along with Rifleman in the Assam Rifles, and posts in the NIA and the Secretariat Security Force." },
-      { q: "Does negative marking apply?", a: "Yes, and it is the reason blind guessing costs candidates their rank. Our test analysis tracks attempted versus correct so a candidate learns where their personal guessing line sits." },
-    ],
-
-    related: ["cds", "nda", "ssb"],
-  },
-
-  /* ========================================================== */
-  {
     id: "ssb",
     name: "SSB",
     fullName: "Services Selection Board",
@@ -406,7 +342,7 @@ window.WEDA_COURSES = [
       { q: "Do you offer SSB preparation alongside written coaching?", a: "Yes. SSB guidance is built into our NDA and CDS courses rather than sold separately, because officer-like qualities develop over months. The intensive capsule is for candidates who already hold a call letter." },
     ],
 
-    related: ["nda", "cds", "ssc-gd"],
+    related: ["nda", "cds"],
   },
 
 

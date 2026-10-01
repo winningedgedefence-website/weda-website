@@ -49,16 +49,6 @@
       "permanent": true
     },
     {
-      "source": "/ssc-gd",
-      "destination": "/courses/ssc-gd",
-      "permanent": true
-    },
-    {
-      "source": "/sscgd",
-      "destination": "/courses/ssc-gd",
-      "permanent": true
-    },
-    {
       "source": "/ssb",
       "destination": "/courses/ssb",
       "permanent": true
@@ -84,12 +74,27 @@
       "permanent": true
     },
     {
-      "source": "/ssc-gd-2026-27",
-      "destination": "/courses/ssc-gd",
+      "source": "/courses.html",
+      "destination": "/courses",
       "permanent": true
     },
     {
-      "source": "/courses.html",
+      "source": "/courses/ssc-gd",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/ssc-gd",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/sscgd",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/ssc-gd-2026-27",
       "destination": "/courses",
       "permanent": true
     }

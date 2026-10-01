@@ -142,30 +142,6 @@ window.WEDA_BATCHES = [
     pitch: "Complete course 1 October 2026 to January 2027 - revision, mock tests, final preparation and marathon sessions.",
   },
 
-  {
-    id: "ssc-gd-classroom-2026-27",
-    course: "ssc-gd",
-    name: "SSC GD Batch 2026-27",
-    track: "Offline",
-    status: "live",
-    starts: "2026-09-18",
-    ends: "2027-04-30",
-    startsLabel: "18 Sept 2026",
-    duration: "Till April 2027",
-    /* Morning slot, confirmed by WEDA. The SSC GD creative prints
-       "9:00 PM - 12:00 AM" — that is a typo in the artwork. */
-    timing: "9:00 AM - 12:00 PM",
-    days: "Monday to Friday",
-    weeklyTest: "12 weekly + 4 monthly tests",
-    mode: "Classroom - Dehradun",
-    platform: "Donali Chowk centre",
-    centre: "Shiv Shakti Tower, Near Donali Chowk, Dehradun",
-    validTill: "April 2027",
-    seatsNote: "Admissions open - limited seats",
-    demo: "Free demo classes: 18 to 30 September 2026",
-    headline: "SSC GD Batch 2026-27 is running",
-    pitch: "Special classroom batch for SSC GD aspirants. Prepare with the right guidance, discipline and strategy.",
-  },
 
 
   /* ==========================================================
