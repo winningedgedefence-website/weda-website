@@ -1200,15 +1200,23 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
    all — 3:2 was slicing the top and bottom off, taking people's heads. */
 .wcar--wide     .wcar__slide{aspect-ratio:4/3;flex-basis:calc((100% - 1 * clamp(10px,1.3vw,18px)) / 2);}
 
-/* Achiever badges arrive with their own red ring on white, so they get no
-   card around them — the slide is clipped to a circle, which trims the
-   white corners and lets the badge sit straight on the page. */
+/* Achiever cards carry the student's name, exam and year printed inside a
+   black frame. They used to be clipped to a circle, which cut the names
+   clean off — so the slide is now a square card and the whole image is
+   shown, contained rather than cropped. */
 .wcar--badge .wcar__slide{
-  aspect-ratio:1/1;flex-basis:calc((100% - 4 * clamp(10px,1.3vw,18px)) / 5);
-  background:none;border:none;box-shadow:none;border-radius:50%;
+  /* four across, not five — the printed name has to stay readable */
+  aspect-ratio:1/1;flex-basis:calc((100% - 3 * clamp(10px,1.3vw,18px)) / 4);
+  background:#000;border:1px solid rgba(12,12,14,.16);border-radius:14px;
+  box-shadow:0 16px 36px -22px rgba(12,12,14,.5);
+  transition:transform .4s var(--ease-o),border-color .3s,box-shadow .3s;
 }
-.wcar--badge .wcar__slide img{border-radius:50%;}
-.wcar--badge .wcar__slide:hover img{transform:scale(1.05);}
+.wcar--badge .wcar__slide img{border-radius:0;object-fit:contain;filter:none;}
+.wcar--badge .wcar__slide:hover{
+  transform:translateY(-4px);border-color:var(--red);
+  box-shadow:0 22px 46px -22px rgba(225,29,46,.55);
+}
+.wcar--badge .wcar__slide:hover img{transform:none;}
 /* the files are already cropped to frame, so no object-position nudge */
 .wcar__slide img{object-position:center center;}
 
@@ -1239,17 +1247,17 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
 
 @media(max-width:1060px){
   .wcar--portrait .wcar__slide{flex-basis:calc((100% - 2 * clamp(10px,1.3vw,18px)) / 3);}
-  .wcar--badge .wcar__slide{flex-basis:calc((100% - 3 * clamp(10px,1.3vw,18px)) / 4);}
+  .wcar--badge .wcar__slide{flex-basis:calc((100% - 2 * clamp(10px,1.3vw,18px)) / 3);}
 }
 @media(max-width:780px){
   .wcar--portrait .wcar__slide{flex-basis:calc((100% - 1 * clamp(10px,1.3vw,18px)) / 2);}
   .wcar--wide .wcar__slide{flex-basis:100%;}
-  .wcar--badge .wcar__slide{flex-basis:calc((100% - 2 * clamp(10px,1.3vw,18px)) / 3);}
+  .wcar--badge .wcar__slide{flex-basis:calc((100% - 1 * clamp(10px,1.3vw,18px)) / 2);}
 }
 @media(max-width:520px){
   .wcar--portrait .wcar__slide{flex-basis:78%;}   /* next slide peeks = swipe cue */
   .wcar--wide .wcar__slide{flex-basis:92%;}
-  .wcar--badge .wcar__slide{flex-basis:calc((100% - 1 * clamp(10px,1.3vw,18px)) / 2);}
+  .wcar--badge .wcar__slide{flex-basis:82%;}      /* one card, name fully legible */
   .wcar__b{width:44px;height:44px;}
   .wcar__slide figcaption{font-size:14px;padding:28px 13px 11px;}
 }
