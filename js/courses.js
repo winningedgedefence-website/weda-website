@@ -633,9 +633,8 @@
                 <em>${esc(t.label)}</em> <b>${esc(tb.name)}</b> — ${esc(batchStatusLine(tb))} · ${esc(tb.timing)}
               </a>`).join('');
           }).join('')}
-          <div class="course-row__tags">
-            ${tracksFor(c.id).map(t => `<span class="tag">${esc(t.label)}</span>`).join('')}
-          </div>
+          <!-- No track pills here: the batch line above already names the
+               track, and the buttons below repeat it a third time. -->
           <div class="course-row__btns">
             ${tracksFor(c.id).map((t, i) => `
               <a href="${base}courses/${esc(c.id)}.html?track=${t.id.toLowerCase()}"
