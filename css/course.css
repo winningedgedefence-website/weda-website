@@ -339,3 +339,37 @@ a.course-row__batch:hover{border-color:var(--red);transform:translateX(3px);}
 .glight__nav--prev{left:clamp(10px,2vw,28px);}
 .glight__nav--next{right:clamp(10px,2vw,28px);}
 @media (max-width:620px){.glight__nav{width:42px;height:42px;font-size:21px;}}
+
+/* ============================================================
+   BLOG COMPARISON TABLE
+   A real table, not an image, so Google can read it and pull it
+   into a featured snippet. Wrapped so it scrolls sideways on a
+   phone instead of breaking the layout.
+   ============================================================ */
+.post__tablewrap{
+  overflow-x:auto;margin:30px 0;border-radius:16px;
+  border:1px solid var(--glass-brd-hi);background:var(--bg-2);
+  -webkit-overflow-scrolling:touch;
+}
+.post__table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.8px;}
+.post__table caption{
+  caption-side:top;text-align:left;padding:18px 22px 0;
+  font-family:var(--font-m);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red-hot);
+}
+.post__table th,.post__table td{padding:15px 22px;text-align:left;vertical-align:top;line-height:1.6;}
+.post__table thead th{
+  font-family:var(--font-d);font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink);border-bottom:2px solid var(--red);
+}
+.post__table tbody tr+tr{border-top:1px solid var(--glass-brd);}
+.post__table tbody th{
+  font-family:var(--font-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gry-lt);white-space:nowrap;
+}
+.post__table tbody td{color:var(--gry-lt);}
+.post__scrollcue{
+  display:none;margin:-22px 0 30px;font-family:var(--font-m);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gry);
+}
+@media (max-width:700px){.post__scrollcue{display:block;}}

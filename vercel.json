@@ -97,6 +97,16 @@
       "source": "/ssc-gd-2026-27",
       "destination": "/courses",
       "permanent": true
+    },
+    {
+      "source": "/old-sainik-school-vs-new-sainik-school",
+      "destination": "/blog-old-sainik-school-vs-new-sainik-school",
+      "permanent": true
+    },
+    {
+      "source": "/blog/old-sainik-school-vs-new-sainik-school",
+      "destination": "/blog-old-sainik-school-vs-new-sainik-school",
+      "permanent": true
     }
   ],
   "rewrites": [

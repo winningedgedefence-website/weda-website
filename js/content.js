@@ -198,6 +198,14 @@ window.WEDA_CONTENT = {
      ============================================================ */
   posts: [
     {
+      title: "Old Sainik School vs New Sainik School: What Most Parents Miss Before Applying",
+      link: "blog-old-sainik-school-vs-new-sainik-school.html",
+      category: "Sainik School",
+      meta: "Parent Guide · 5 min read",
+      author: "The Winning Edge Defence Academy",
+      excerpt: "Same word. Same uniform. Very different schools. Who runs the old and the new Sainik Schools, how the AISSEE seat split actually works, why no one states the new-school fee plainly, and how to verify a school before you pay.",
+    },
+    {
       title: "RIMC December 2026 GK Syllabus Changed: How Should Students Prepare for the New General Knowledge Paper?",
       link: "blog-rimc-gk-syllabus-2026-preparation.html",
       category: "RIMC",
