@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="stylesheet" href="css/style.css?v=202610061152">
-<link rel="stylesheet" href="css/course.css?v=202610061152">
+<link rel="stylesheet" href="css/style.css?v=202610061156">
+<link rel="stylesheet" href="css/course.css?v=202610061156">
 </head>
 <body>
 
@@ -116,11 +116,17 @@
               </select>
             </div>
           </div>
-          <!-- Bot trap. Hidden from people, irresistible to spam scripts;
-               anything typed here makes the server drop the submission. -->
-          <div class="fhp" aria-hidden="true">
-            <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-          </div>
+          <!-- Leads are emailed by Web3Forms. Their free plan only accepts
+               submissions from a browser, not from a server, so the access
+               key has to sit here in the page. It is not a password: it can
+               only post a message to the inbox it is bound to. If the inbox
+               ever gets spam, replace this key at web3forms.com. -->
+          <input type="hidden" name="access_key" value="750873b3-b8b0-4c02-954d-b013a07871d0">
+          <input type="hidden" name="subject" value="New enquiry from thewinningedge.co.in">
+          <input type="hidden" name="from_name" value="WEDA Website">
+          <!-- Bot trap, Web3Forms' own convention: hidden from people,
+               irresistible to spam scripts, and anything in it is dropped. -->
+          <input type="checkbox" name="botcheck" class="fhp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label class="fcheck"><input type="checkbox" required><span>I hereby acknowledge that the information provided above is true and correct to the best of my knowledge.</span></label>
           <button type="submit" class="btn" id="regSubmit">Register Now ⟶</button>
           <p class="fmsg" id="regMsg" role="status" aria-live="polite"></p>
@@ -229,10 +235,10 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/content.js?v=202610061152"></script>
-<script src="js/courses-data.js?v=202610061152"></script>
-<script src="js/batches.js?v=202610061152"></script>
-<script src="js/courses.js?v=202610061152"></script>
-<script src="js/main.js?v=202610061152"></script>
+<script src="js/content.js?v=202610061156"></script>
+<script src="js/courses-data.js?v=202610061156"></script>
+<script src="js/batches.js?v=202610061156"></script>
+<script src="js/courses.js?v=202610061156"></script>
+<script src="js/main.js?v=202610061156"></script>
 </body>
 </html>

@@ -920,11 +920,14 @@ if (fLogo) fLogo.outerHTML = `<a href="${BASE}index.html" class="foot-logo"><img
 
 /* ---------- form toast ---------- */
 /* ---------- enquiry form ----------
-   Sends the lead to /api/lead, which emails it to the academy. This used
-   to call preventDefault() and reset() and nothing else, so every lead was
-   thrown away while the parent was shown "Registration received". Now the
-   parent is only told it worked once the server confirms it, and is given
-   WhatsApp as a fallback if anything fails. */
+   Emails the lead to the academy through Web3Forms. This used to call
+   preventDefault() and reset() and nothing else, so every lead was thrown
+   away while the parent was still shown "Registration received". Now the
+   parent is only told it worked once Web3Forms confirms it, and is given
+   WhatsApp as a fallback if anything fails.
+
+   The request goes straight from the browser because Web3Forms' free plan
+   refuses server-to-server calls ("Use our API in client side"). */
 const form = document.getElementById('regForm');
 if (form) {
   const btn = document.getElementById('regSubmit');
@@ -941,21 +944,22 @@ if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
-    data.page = location.pathname;
+    data.Received = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+    data.Source = location.pathname;
 
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     say('', 'idle');
 
     try {
-      const r = await fetch('/api/lead', {
+      const r = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
       });
       const out = await r.json().catch(() => ({}));
 
-      if (r.ok && out.ok) {
+      if (r.ok && out.success) {
         form.reset();
         const t = document.getElementById('toast');
         if (t) {
@@ -965,7 +969,7 @@ if (form) {
         say('Sent. We will call you within 24 hours.', 'ok');
       } else {
         /* Never claim success we did not get. Offer a route that works. */
-        say(out.reason || 'We could not send that just now.', 'err');
+        say(out.message || 'We could not send that just now.', 'err');
         const a = document.createElement('a');
         a.href = WA + '?text=' + encodeURIComponent(
           `Enquiry from the website\nName: ${data.name || ''}\nPhone: ${data.phone || ''}\nCourse: ${data.course || ''}`);
