@@ -920,14 +920,17 @@ if (fLogo) fLogo.outerHTML = `<a href="${BASE}index.html" class="foot-logo"><img
 
 /* ---------- form toast ---------- */
 /* ---------- enquiry form ----------
-   Emails the lead to the academy through Web3Forms. This used to call
+   Emails the lead to the academy through FormSubmit. This used to call
    preventDefault() and reset() and nothing else, so every lead was thrown
    away while the parent was still shown "Registration received". Now the
-   parent is only told it worked once Web3Forms confirms it, and is given
+   parent is only told it worked once FormSubmit confirms it, and is given
    WhatsApp as a fallback if anything fails.
 
-   The request goes straight from the browser because Web3Forms' free plan
-   refuses server-to-server calls ("Use our API in client side"). */
+   FormSubmit rather than Web3Forms because its mail reaches the inbox
+   instead of the spam folder, and it needs no account or API key. The
+   /ajax/ endpoint returns JSON, so the page can report honestly instead
+   of navigating away to a thank-you screen. */
+const LEAD_ENDPOINT = 'https://formsubmit.co/ajax/winningedgedefence@gmail.com';
 const form = document.getElementById('regForm');
 if (form) {
   const btn = document.getElementById('regSubmit');
@@ -946,25 +949,25 @@ if (form) {
     const data = Object.fromEntries(new FormData(form).entries());
     data.Received = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
     data.Source = location.pathname;
-    /* A specific subject and a real reply-to read as genuine correspondence
-       rather than bulk mail, which helps it stay out of spam — and lets you
-       reply straight to the parent from the notification. */
-    if (data.name) data.subject = `New enquiry — ${data.name}${data.course ? ' · ' + data.course : ''}`;
-    if (data.email) data.replyto = data.email;
+    /* A specific subject reads as real correspondence rather than bulk mail,
+       and _replyto lets you answer the parent straight from the notification. */
+    if (data.name) data._subject = `New enquiry — ${data.name}${data.course ? ' · ' + data.course : ''}`;
+    if (data.email) data._replyto = data.email;
 
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     say('', 'idle');
 
     try {
-      const r = await fetch('https://api.web3forms.com/submit', {
+      const r = await fetch(LEAD_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
       });
       const out = await r.json().catch(() => ({}));
 
-      if (r.ok && out.success) {
+      /* FormSubmit reports success as the string "true", not a boolean. */
+      if (r.ok && String(out.success) === 'true') {
         form.reset();
         const t = document.getElementById('toast');
         if (t) {
