@@ -647,6 +647,23 @@
   }
 
   /* ==========================================================
+     3b. ENQUIRY FORM COURSE LIST  (contact.html)
+     ----------------------------------------------------------
+     Built from the course data so the dropdown cannot drift out
+     of step with the courses actually on the site. It used to be
+     hardcoded, and still offered SSC GD, JNV and UP Sainik School
+     after those were retired, while missing CDS entirely.
+     ========================================================== */
+  const courseSelect = document.getElementById('courseSelect');
+  if (courseSelect) {
+    const extras = ['Digital Courses', 'Not sure yet — please advise'];
+    courseSelect.innerHTML =
+      '<option value="" disabled selected>Choose course</option>' +
+      COURSES.map(c => `<option>${esc(c.name)}</option>`).join('') +
+      extras.map(x => `<option>${esc(x)}</option>`).join('');
+  }
+
+  /* ==========================================================
      4. HOMEPAGE BATCH RIBBON  (index.html)
      ========================================================== */
   const ribbon = document.getElementById('batchRibbon');
