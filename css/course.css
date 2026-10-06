@@ -373,3 +373,19 @@ a.course-row__batch:hover{border-color:var(--red);transform:translateX(3px);}
   letter-spacing:.18em;text-transform:uppercase;color:var(--gry);
 }
 @media (max-width:700px){.post__scrollcue{display:block;}}
+
+/* ============================================================
+   ENQUIRY FORM — honeypot + status line
+   ============================================================ */
+/* Hidden from people but still filled in by spam bots. Not display:none,
+   which some bots skip; off-screen, which they do not. */
+.fhp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
+.fmsg{
+  margin:14px 0 0;min-height:1.2em;font-family:var(--font-m);
+  font-size:12px;line-height:1.7;letter-spacing:.04em;
+}
+.fmsg.is-ok{color:#1a7f44;}
+.fmsg.is-err{color:var(--red-hot);}
+.fmsg a{color:var(--red);text-decoration:underline;text-underline-offset:3px;}
+.fmsg a:hover{color:var(--red-hot);}

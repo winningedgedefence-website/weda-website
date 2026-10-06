@@ -919,10 +919,68 @@ const fLogo = document.querySelector('.foot__about .nav__logo');
 if (fLogo) fLogo.outerHTML = `<a href="${BASE}index.html" class="foot-logo"><img src="${BASE}assets/logo.png" alt="WEDA — The Winning Edge Defence Academy"></a>`;
 
 /* ---------- form toast ---------- */
+/* ---------- enquiry form ----------
+   Sends the lead to /api/lead, which emails it to the academy. This used
+   to call preventDefault() and reset() and nothing else, so every lead was
+   thrown away while the parent was shown "Registration received". Now the
+   parent is only told it worked once the server confirms it, and is given
+   WhatsApp as a fallback if anything fails. */
 const form = document.getElementById('regForm');
-if (form) form.addEventListener('submit', e => {
-  e.preventDefault();
-  const t = document.getElementById('toast');
-  t.classList.add('show'); e.target.reset();
-  setTimeout(() => t.classList.remove('show'), 4200);
-});
+if (form) {
+  const btn = document.getElementById('regSubmit');
+  const msg = document.getElementById('regMsg');
+  const WA = 'https://wa.me/917417656633';
+
+  const say = (text, kind) => {
+    if (!msg) return;
+    msg.textContent = '';
+    msg.className = 'fmsg is-' + kind;
+    msg.append(text);
+  };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.page = location.pathname;
+
+    const label = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    say('', 'idle');
+
+    try {
+      const r = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const out = await r.json().catch(() => ({}));
+
+      if (r.ok && out.ok) {
+        form.reset();
+        const t = document.getElementById('toast');
+        if (t) {
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 4200);
+        }
+        say('Sent. We will call you within 24 hours.', 'ok');
+      } else {
+        /* Never claim success we did not get. Offer a route that works. */
+        say(out.reason || 'We could not send that just now.', 'err');
+        const a = document.createElement('a');
+        a.href = WA + '?text=' + encodeURIComponent(
+          `Enquiry from the website\nName: ${data.name || ''}\nPhone: ${data.phone || ''}\nCourse: ${data.course || ''}`);
+        a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = ' Message us on WhatsApp instead ⟶';
+        msg && msg.append(a);
+      }
+    } catch (err) {
+      say('No connection. Please check your internet, or', 'err');
+      const a = document.createElement('a');
+      a.href = WA; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = ' message us on WhatsApp ⟶';
+      msg && msg.append(a);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+    }
+  });
+}
