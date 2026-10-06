@@ -946,6 +946,11 @@ if (form) {
     const data = Object.fromEntries(new FormData(form).entries());
     data.Received = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
     data.Source = location.pathname;
+    /* A specific subject and a real reply-to read as genuine correspondence
+       rather than bulk mail, which helps it stay out of spam — and lets you
+       reply straight to the parent from the notification. */
+    if (data.name) data.subject = `New enquiry — ${data.name}${data.course ? ' · ' + data.course : ''}`;
+    if (data.email) data.replyto = data.email;
 
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
