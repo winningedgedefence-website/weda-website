@@ -663,38 +663,6 @@
       extras.map(x => `<option>${esc(x)}</option>`).join('');
   }
 
-  /* ==========================================================
-     4. HOMEPAGE BATCH RIBBON  (index.html)
-     ========================================================== */
-  const ribbon = document.getElementById('batchRibbon');
-  if (ribbon) {
-    const live = currentCampaigns();
-    if (!live.length) { ribbon.remove(); }
-    else {
-      ribbon.innerHTML = `
-      <div class="wrap">
-        <div class="ribbon glass" data-a>
-          <div class="ribbon__head">
-            <span class="ribbon__flag"><span class="pulse"></span>Admissions Open</span>
-            <h2>Batches running right now</h2>
-            <p>Classroom at our Donali Chowk centre, and live online classes on Zoom.</p>
-          </div>
-          <div class="ribbon__list">
-            ${live.map(b => {
-              const c = byId(b.course);
-              return `
-              <a class="rib" href="${base}courses/${esc(b.course)}.html?track=${trackOf(b).toLowerCase()}">
-                <b>${esc(c ? c.name : b.course)}</b>
-                <span>${esc(b.startsLabel)}</span>
-                <i>${esc(b.timing)} · ${esc(b.track || '')}</i>
-              </a>`;
-            }).join('')}
-          </div>
-          <a href="${base}batches.html" class="btn btn--glass">See All Running Batches ⟶</a>
-        </div>
-      </div>`;
-    }
-  }
 
   /* ==========================================================
      5. /batches  — THE TRACKING DASHBOARD

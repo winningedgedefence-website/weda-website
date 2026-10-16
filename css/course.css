@@ -259,21 +259,6 @@ a.course-row__batch:hover{border-color:var(--red);transform:translateX(3px);}
 .bpop__alt button:hover{color:var(--red-hot);}
 
 /* ============================================================
-   HOMEPAGE BATCH RIBBON
-   ============================================================ */
-.ribbon{padding:clamp(30px,3.6vw,46px) clamp(28px,3.4vw,46px);border-color:rgba(225,29,46,.28);}
-.ribbon__head{margin-bottom:26px;}
-.ribbon__flag{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:100px;background:rgba(225,29,46,.08);border:1px solid rgba(225,29,46,.34);font-family:var(--font-m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-hot);margin-bottom:18px;}
-.ribbon__head h2{font-size:clamp(26px,3.4vw,44px);line-height:1;color:var(--ink);margin-bottom:10px;}
-.ribbon__head p{color:var(--gry-lt);font-size:14.8px;line-height:1.7;}
-.ribbon__list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin-bottom:26px;}
-.rib{padding:18px 20px;border-radius:14px;border:1px solid var(--glass-brd);background:var(--bg-2);transition:border-color .28s,transform .3s var(--ease-o);}
-.rib:hover{border-color:var(--red);transform:translateY(-3px);}
-.rib b{display:block;font-family:var(--font-d);font-size:21px;line-height:1;text-transform:uppercase;color:var(--ink);margin-bottom:9px;}
-.rib span{display:block;font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-hot);margin-bottom:5px;}
-.rib i{font-style:normal;font-family:var(--font-m);font-size:10px;letter-spacing:.1em;color:var(--gry);}
-
-/* ============================================================
    /batches DASHBOARD
    ============================================================ */
 .bboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;}
