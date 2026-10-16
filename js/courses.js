@@ -38,6 +38,12 @@
      visitor sees each track's announcement once and never the wrong one. */
   const popupShown = new Set();
 
+  /* Online batches drop off the site the day after they begin. Set this to
+     false in js/batches.js (window.WEDA_BATCH_DISPLAY) to keep advertising
+     them while they run, the way classroom batches are handled. */
+  const HIDE_STARTED_ONLINE =
+    (window.WEDA_BATCH_DISPLAY || {}).hideStartedOnline !== false;
+
   /* Add ?preview=YYYY-MM-DD to any URL to see the site exactly as it
      will look on that date. Nothing else changes — it only moves the
      campaign clock, so you can check a batch handover before it happens.
@@ -79,12 +85,37 @@
      A live batch is dropped automatically once its end date
      has passed, so a finished batch can never linger.
      ========================================================== */
+  /* Upcoming batches lead, soonest first. Batches already under way follow,
+     most recently started first, so nothing that has begun sits above
+     something a parent can still enrol in from day one. */
+  const byUpcomingFirst = (a, b) => {
+    const da = daysTo(a.starts), db = daysTo(b.starts);
+    if (da === null || db === null) return 0;
+    const ua = da > 0 ? 0 : 1, ub = db > 0 ? 0 : 1;
+    if (ua !== ub) return ua - ub;
+    return ua === 0 ? da - db : db - da;
+  };
+
   const openBatches = () => BATCHES.filter(b => {
     if (b.status !== 'live') return false;
-    if (!b.ends) return true;
-    const left = daysTo(b.ends);
-    return left === null || left >= 0;
-  });
+
+    /* Past its end date — gone regardless of track. */
+    if (b.ends) {
+      const left = daysTo(b.ends);
+      if (left !== null && left < 0) return false;
+    }
+
+    /* An online batch is a fixed-start course on Zoom: once it has begun,
+       a new student cannot usefully pick it up, so it stops being
+       advertised. Classroom batches run through the year and do take
+       mid-session joiners, so those stay up while they run. */
+    if (HIDE_STARTED_ONLINE && trackOf(b) === 'Online') {
+      const d = daysTo(b.starts);
+      if (d !== null && d < 0) return false;
+    }
+
+    return true;
+  }).sort(byUpcomingFirst);
 
   /* The two delivery tracks. They rotate INDEPENDENTLY, so an online
      batch never switches off a running classroom batch and vice versa. */
@@ -102,7 +133,7 @@
   function activeFor(courseId, track) {
     return openBatches()
       .filter(b => b.course === courseId && (!track || trackOf(b) === track))
-      .sort((a, b) => a.starts.localeCompare(b.starts));
+      .sort(byUpcomingFirst);
   }
 
   /* The single batch this page is about — the one on its own track. */
@@ -121,7 +152,7 @@
 
   /* Every live batch across every course — for the ribbon and board. */
   const currentCampaigns = () =>
-    COURSES.reduce((acc, c) => acc.concat(activeFor(c.id)), []);
+    COURSES.reduce((acc, c) => acc.concat(activeFor(c.id)), []).sort(byUpcomingFirst);
 
   /* The line that sits under a batch name everywhere it appears. */
   const batchStatusLine = b => {
