@@ -284,6 +284,12 @@ body.cur-hover .cur-ring{width:68px;height:68px;opacity:.5;}
 .foot__grid ul a:hover{color:#ff6470;}
 .foot__about p{color:#8a8a92;font-size:13.5px;line-height:1.75;max-width:340px;margin-top:16px;}
 .foot__base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-family:var(--font-m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#5f5f68;}
+/* legal links in the footer base row — required on every page, so they sit
+   in the middle slot of .foot__base rather than taking a column of their own. */
+.foot__legal{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:center;}
+.foot__legal a{color:#5f5f68;transition:color .25s;}
+.foot__legal a:hover{color:var(--red);}
+@media(max-width:700px){.foot__base{justify-content:center;text-align:center;}.foot__legal{order:-1;}}
 @media(max-width:900px){.foot__grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:540px){.foot__grid{grid-template-columns:1fr;}}
 

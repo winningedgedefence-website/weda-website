@@ -107,6 +107,46 @@
       "source": "/blog/old-sainik-school-vs-new-sainik-school",
       "destination": "/blog-old-sainik-school-vs-new-sainik-school",
       "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-and-conditions",
+      "permanent": true
+    },
+    {
+      "source": "/tnc",
+      "destination": "/terms-and-conditions",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-and-conditions",
+      "permanent": true
+    },
+    {
+      "source": "/refund",
+      "destination": "/refund-policy",
+      "permanent": true
+    },
+    {
+      "source": "/refunds",
+      "destination": "/refund-policy",
+      "permanent": true
+    },
+    {
+      "source": "/cancellation-and-refund-policy",
+      "destination": "/refund-policy",
+      "permanent": true
     }
   ],
   "rewrites": [
