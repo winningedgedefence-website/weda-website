@@ -956,7 +956,9 @@ if (form) {
 
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-    say('', 'idle');
+    /* FormSubmit can take ten seconds or more to answer. Say so, or the
+       parent reads the stalled button as a broken form and gives up. */
+    say('Sending your details… this can take a few seconds.', 'idle');
 
     try {
       const r = await fetch(LEAD_ENDPOINT, {

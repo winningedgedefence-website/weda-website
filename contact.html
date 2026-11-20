@@ -101,7 +101,7 @@
       <div class="regform glass" data-a id="enroll" style="scroll-margin-top:90px;">
         <h3>Fill The Form <span class="rd">Below</span></h3>
         <div class="fsub">// Registration · The Winning Edge Defence Academy</div>
-        <form id="regForm">
+        <form id="regForm" action="https://formsubmit.co/winningedgedefence@gmail.com" method="POST">
           <div class="fgrid">
             <div class="fld"><label>Name</label><input type="text" name="name" placeholder="Cadet's full name" required></div>
             <div class="fld"><label>Phone</label><input type="tel" name="phone" placeholder="+91" required></div>
@@ -128,7 +128,7 @@
           <!-- Bot trap, FormSubmit's own convention: hidden from people,
                irresistible to spam scripts, and anything in it is dropped. -->
           <input type="text" name="_honey" class="fhp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <label class="fcheck"><input type="checkbox" required><span>I hereby acknowledge that the information provided above is true and correct to the best of my knowledge.</span></label>
+          <label class="fcheck"><input type="checkbox" name="Declaration" value="Accepted by the parent" required><span>I hereby acknowledge that the information provided above is true and correct to the best of my knowledge.</span></label>
           <button type="submit" class="btn" id="regSubmit">Register Now ⟶</button>
           <p class="fmsg" id="regMsg" role="status" aria-live="polite"></p>
         </form>
@@ -226,6 +226,7 @@
     </div>
     <div class="foot__base">
       <span>© The Winning Edge Defence Academy — Since 2019</span>
+      <span class="foot__legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="refund-policy.html">Refund Policy</a></span>
       <span>Discipline / Strategy / Selection</span>
     </div>
   </div>
